@@ -1,0 +1,4 @@
+To run this application, make sure you have Flask installed (pip install flask) and save the code in a file, such as app.py. 
+Then, run the script using python app.py. 
+
+  The Flask application will start, and you can access the defined routes at http://localhost:5000/ and http://localhost:5000/api/data.
