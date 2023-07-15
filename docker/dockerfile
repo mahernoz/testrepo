@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/windows/servercore/iis:latest
+
+WORKDIR /inetpub/wwwroot
+
+# Copy application files to the container
+COPY . .
+
+# Enable IIS features
+RUN dism.exe /online /enable-feature /all /featurename:IIS-ASPNET45
+RUN dism.exe /online /enable-feature /all /featurename:IIS-NetFxExtensibility45
+
+# Expose port 80 for HTTP traffic
+EXPOSE 80
+
+# Start IIS
+CMD ["cmd", "/k", "start", "C:\\ServiceMonitor.exe", "w3svc"]
